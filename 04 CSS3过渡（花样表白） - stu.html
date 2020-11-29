@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>04 CSS3过渡（花样告白）</title>
+    <style>
+        body {
+            margin: 0 auto;
+            background: #FFE66f;
+        }
+
+        .heart {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: #FF9E98;
+            margin: 100px 20%;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+
+        }
+
+        .heart::after,
+        .heart::before {
+            position: absolute;
+            content: "";
+            width: 200px;
+            height: 200px;
+            display: block;
+            border-radius: 50%;
+            background-color: #FF9E98;
+        }
+
+        .heart::before {
+            left: -100px;
+            bottom: 0;
+        }
+
+        .heart::after {
+            top: -100px;
+            right: 0;
+        }
+
+        .biaobai {
+            color: #ffe384;
+            position: absolute;
+            left: 30%;
+            top: 10%;
+            transform: rotate(45deg);
+        }
+
+        .biaobai {
+            color: #ffe384;
+            position: absolute;
+            left: 30%;
+            top: 10%;
+            transform: rotate(45deg);
+        }
+
+        .xxx {
+            color: #ffe384;
+            position: absolute;
+            left: 18%;
+            top: 10%;
+            transform: rotate(-45deg);
+
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            position: relative;
+            transition: all 1s;
+            transform-style: preserve-3d;
+            right: -400px;
+            top: -350px;
+
+        }
+
+        .box:hover {
+            transform: rotateY(180deg);
+        }
+
+        .box1,
+        .box2 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        .box1 {
+            background: url(./images/bg.png) right;
+            transform: translateZ(30px);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+        }
+
+        .box2 {
+            background: url(./images/bg.png) left;
+            transform: translateZ(0px);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+        }
+
+        .box2 {
+            transform: rotateY(180deg);
+        }
+
+        .items {
+            width: 1500px;
+            height: 200px;
+            margin: 100px auto;
+            top: -600px;
+            position: relative;
+        }
+
+        .items .item:nth-child(1) {
+            position: absolute;
+            top: 200px;
+            left: 8%;
+            width: 234px;
+            height: 300px;
+        }
+
+        .items .item:nth-child(2) {
+            position: absolute;
+            top: 200px;
+            left: 25%;
+            background-color: #fff;
+            width: 234px;
+            height: 300px;
+        }
+
+        .items .item:nth-child(3) {
+            position: absolute;
+            top: 200px;
+            left: 42%;
+            background-color: #fff;
+            width: 234px;
+            height: 300px;
+        }
+
+        .items .item:nth-child(4) {
+            position: absolute;
+            top: 200px;
+            left: 59%;
+            background-color: #fff;
+            width: 234px;
+            height: 300px;
+        }
+
+        .items .item:nth-child(5) {
+            position: absolute;
+            top: 200px;
+            left: 76%;
+            background-color: #fff;
+            width: 234px;
+            height: 300px;
+        }
+
+        .items .item:nth-child(1):hover {
+            transform: translateY(-15px);
+            transition: All 1s;
+        }
+
+        .items .item:nth-child(2):hover {
+            transform: translateY(-15px);
+            transition: All 1s;
+        }
+
+        .items .item:nth-child(3):hover {
+            transform: translateY(-15px);
+            transition: All 1s;
+        }
+
+        .items .item:nth-child(4):hover {
+            transform: translateY(-15px);
+            transition: All 1s;
+        }
+
+        .items .item:nth-child(5):hover {
+            transform: translateY(-15px);
+            transition: All 1s;
+        }
+
+        .item .mask {
+            position: absolute;
+            top: 150px;
+            left: 0;
+            width: 204px;
+            bottom: 0px;
+            padding: 15px;
+            background: rgb(233, 194, 236);
+            color: #ed4e6e;
+        }
+
+        .item .mask {
+            opacity: 0;
+            -webkit-transform: translateY(100%);
+            -moz-transform: translateY(100%);
+            -o-transform: translateY(100%);
+            transform: translateY(100%);
+            -webkit-transition: -webkit-transform 0.6s, opacity 0.4s 0.3s;
+            -moz-transition: -moz-transform 0.6s, opacity 0.4s 0.3s;
+            -o-transition: -moz-transform 0.6s, opacity 0.4s 0.3s;
+            transition: transform 0.6s, opacity 0.4s 0.3s;
+        }
+
+        .item:hover .mask {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+            -moz-transform: translateY(0px);
+            -o-transform: translateY(0px);
+            transform: translateY(0px);
+            -webkit-transition: -webkit-transform 1s, opacity 0.1s;
+            -moz-transition: -moz-transform 1s, opacity 0.1s;
+            -o-transition: -moz-transform 1s, opacity 0.1s;
+            transition: transform 1s, opacity 0.1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="heart">
+        </div>
+        <div class="biaobai">我喜欢你</div>
+        <div class="xxx">轩轩</div>
+        <div class="box">
+
+            <div class="box1"></div>
+            <div class="box2"></div>
+        </div>
+    </div>
+    <div class="items">
+        <div class="item">
+            <img src="./images/1.jpg" alt="">
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="./images/2.png" alt="">
+            </div>
+            <div class="desc mask">有句话悄悄说</div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="./images/3.png" alt="">
+            </div>
+            <div class="desc mask">你的样子最可爱</div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="./images/4.png" alt="">
+            </div>
+            <div class="desc mask">喜欢的就是你</div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="./images/5.png" alt="">
+            </div>
+            <div class="desc mask">期限是一万年</div>
+        </div>
+    </div>
+</body>
+
+</html>
